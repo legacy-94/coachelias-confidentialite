@@ -20,11 +20,11 @@
 <body>
 <main>
   <h1><span>Calezio</span><br>Politique de confidentialité</h1>
-  <p class="meta">Dernière mise à jour : 6 octobre 2026</p>
+  <p class="meta">Dernière mise à jour : 18 octobre 2026 · <a href="en/">English version</a></p>
 
   <p>Calezio est une application de suivi des calories éditée par Nevoa. Cette page explique quelles données l'application utilise, pourquoi, et avec qui elles sont partagées. Pour toute question : <a href="mailto:contact@nevoa.app">contact@nevoa.app</a>.</p>
 
-  <h2>1. Pas de compte, pas de serveur Nevoa</h2>
+  <h2>1. Pas de compte, pas de base de données Nevoa</h2>
   <p>Tu n'as pas besoin de créer de compte. Nevoa ne possède pas de base de données qui contiendrait tes repas, ton poids ou ton profil.</p>
 
   <h2>2. Ce qui reste sur ton téléphone</h2>
@@ -38,16 +38,17 @@
   <p>Ces données servent à calculer ton objectif de calories du jour et à afficher ta progression. Si tu désinstalles l'application, elles sont supprimées de ton téléphone.</p>
 
   <h2>3. Photos et descriptions de repas</h2>
-  <p>Quand tu demandes à Calezio d'estimer un repas, la photo de ton assiette (ou le texte que tu as écrit) est envoyée, de façon chiffrée (HTTPS), au service d'intelligence artificielle de <strong>Mistral AI</strong> (société française). Il renvoie la liste des aliments et leurs portions estimées.</p>
+  <p>Quand tu demandes à Calezio d'estimer un repas, la photo de ton assiette (ou le texte que tu as écrit) est envoyée, de façon chiffrée (HTTPS), à un serveur intermédiaire de Nevoa (hébergé chez Vercel) qui la relaie, sans la stocker, au service d'intelligence artificielle de <strong>DeepSeek</strong>. Il renvoie la liste des aliments et leurs portions estimées.</p>
   <ul>
     <li>Seule la photo ou la description du repas est envoyée. Ton profil, ton poids et ton prénom ne sont pas envoyés.</li>
     <li>Calezio ne garde pas la photo : elle n'est pas stockée par Nevoa.</li>
-    <li>Le traitement par Mistral AI suit la politique de confidentialité de Mistral AI.</li>
+    <li>Les serveurs de DeepSeek peuvent se trouver hors de l'Union européenne et des États-Unis, notamment en Chine. Le traitement suit la politique de confidentialité de DeepSeek.</li>
   </ul>
   <p>Évite de photographier des personnes ou des documents : l'application n'est faite que pour les repas.</p>
 
-  <h2>4. Appareil photo et galerie</h2>
+  <h2>4. Appareil photo, galerie et microphone</h2>
   <p>L'application demande l'accès à l'appareil photo ou à ta galerie uniquement quand tu choisis d'ajouter une photo de repas. Aucune photo n'est lue en dehors de ce choix.</p>
+  <p>Si tu utilises la dictée vocale pour décrire un repas, l'application demande l'accès au microphone et utilise le service de reconnaissance vocale de ton téléphone (Android, Google). Calezio n'enregistre ni ne conserve l'audio : seul le texte reconnu est utilisé, comme un repas écrit. Le micro n'est actif que pendant la dictée.</p>
 
   <h2>5. Abonnement</h2>
   <p>Calezio fonctionne par abonnement, géré par <strong>Google Play</strong> et <strong>RevenueCat</strong>. RevenueCat reçoit un identifiant anonyme et l'état de ton abonnement (essai, actif, expiré) pour débloquer l'application. Nevoa ne reçoit ni ta carte bancaire ni tes informations de paiement.</p>
@@ -57,7 +58,7 @@
   <p>Tu peux limiter ou supprimer l'identifiant publicitaire dans les réglages de ton téléphone (Google, Annonces).</p>
 
   <h2>7. Notifications</h2>
-  <p>Les rappels (fin d'essai, pesée) sont des notifications programmées sur ton téléphone. Elles ne passent par aucun serveur. Tu peux les refuser ou les couper à tout moment dans les réglages de l'application ou de ton téléphone.</p>
+  <p>Les rappels (repas, pesée, fin d'essai) sont des notifications programmées sur ton téléphone. Elles ne passent par aucun serveur. Tu peux les refuser ou les couper à tout moment dans les réglages de l'application ou de ton téléphone.</p>
 
   <h2>8. Santé</h2>
   <p>Les calories d'une photo sont des estimations. Calezio ne remplace pas l'avis d'un médecin ou d'un diététicien et ne fournit pas de conseil médical. Avant de modifier ton alimentation, parles-en à un professionnel de santé.</p>
@@ -71,7 +72,7 @@
   <p>Ce qui est effacé, et ce qui peut rester un temps :</p>
   <ul>
     <li>Profil, repas, pesées, rappels : uniquement sur ton téléphone. La désinstallation les efface. Nevoa n'en a pas de copie.</li>
-    <li>Photo ou texte du repas : envoyé à Mistral AI le temps de l'estimation, non conservé par Nevoa. Mistral AI l'efface selon sa propre politique.</li>
+    <li>Photo ou texte du repas : envoyé à DeepSeek, via le serveur intermédiaire de Nevoa, le temps de l'estimation, non conservé par Nevoa. DeepSeek le traite selon sa propre politique.</li>
     <li>Abonnement : RevenueCat conserve l'état de l'abonnement le temps nécessaire à la facturation et aux obligations légales, puis le supprime sur demande.</li>
     <li>Mesure publicitaire : AppsFlyer conserve l'identifiant publicitaire et les événements d'installation, d'essai et d'achat pendant la durée prévue par son contrat, puis les supprime sur demande. Tu peux aussi réinitialiser l'identifiant publicitaire dans les réglages du téléphone.</li>
   </ul>
