@@ -108,15 +108,6 @@
   .center { text-align: center; }
   .center .sub { margin: 0 auto; }
 
-  /* Market proof */
-  .market {
-    margin-top: 36px; display: grid; grid-template-columns: auto 1fr; gap: 28px; align-items: center;
-    background: linear-gradient(135deg, var(--tint), var(--raised)); border: 1px solid rgba(94,212,168,.3); border-radius: 26px; padding: 32px 36px;
-  }
-  .market big { font-size: clamp(44px, 6vw, 72px); font-weight: 800; letter-spacing: -.04em; line-height: 1; color: var(--mint); }
-  .market p { margin: 0; color: #d5dad6; font-size: 18px; }
-  .market small { display: block; margin-top: 8px; color: var(--dim); font-size: 13px; }
-
   /* Why */
   .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 44px; }
   .card { background: var(--raised); border: 1px solid var(--line); border-radius: 24px; padding: 28px; transition: border-color .25s, transform .25s; }
@@ -269,7 +260,6 @@
     .shots { grid-template-columns: repeat(2, 1fr); }
     .board-grid, .refer { grid-template-columns: 1fr; }
     .refer .badge { display: none; }
-    .market { grid-template-columns: 1fr; gap: 12px; padding: 26px; }
     .gift-line { flex-wrap: wrap; }
     .brand small { display: none; }
   }
@@ -391,25 +381,8 @@
     </div>
   </section>
 
-  <!-- MARKET -->
-  <section>
-    <div class="wrap">
-      <div class="center reveal">
-        <div class="eyebrow">Un format qui a déjà fait ses preuves</div>
-        <h2>Les calories en photo, c'est le terrain de jeu des créateurs.</h2>
-      </div>
-      <div class="market reveal">
-        <big>15 M+</big>
-        <div>
-          <p>Une app de calories par photo a dépassé 15 millions de téléchargements, portée en grande partie par des créateurs de contenu, avant d'être rachetée par MyFitnessPal en 2026.</p>
-          <small>Sources : LinkedIn News (mars 2026), GTM Sauce (octobre 2026). Ce chiffre concerne une autre application, pas Calezio.</small>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- WHY -->
-  <section style="padding-top: 20px;">
+  <section>
     <div class="wrap">
       <div class="center reveal">
         <div class="eyebrow">Pourquoi ça se partage tout seul</div>
@@ -455,13 +428,13 @@
       </div>
 
       <div class="rhythm reveal">
-        <label for="subs">Abonnés annuels amenés par mois <output id="subsOut">60</output></label>
-        <input type="range" id="subs" min="5" max="300" value="60">
+        <label for="subs">Abonnés annuels amenés par mois <output id="subsOut">400</output></label>
+        <input type="range" id="subs" min="100" max="2000" step="50" value="400">
         <div class="presets" id="presets">
-          <button type="button" data-v="15">Je démarre · 15</button>
-          <button type="button" data-v="60" class="on">Régulier · 60</button>
-          <button type="button" data-v="150">Gros créateur · 150</button>
-          <button type="button" data-v="300">Carton · 300</button>
+          <button type="button" data-v="100">Je démarre · 100</button>
+          <button type="button" data-v="400" class="on">Régulier · 400</button>
+          <button type="button" data-v="1000">Gros créateur · 1 000</button>
+          <button type="button" data-v="2000">Carton · 2 000</button>
         </div>
       </div>
 
