@@ -188,6 +188,10 @@
 
   /* Décomposition */
   .split { max-width: 720px; margin: 40px auto 0; background: var(--raised); border: 1px solid var(--line); border-radius: 24px; padding: 28px 28px 22px; }
+  .gift-line { display: flex; justify-content: space-between; align-items: center; gap: 16px; background: var(--tint); border: 1px solid rgba(94,212,168,.4); border-radius: 16px; padding: 14px 16px; margin-bottom: 18px; }
+  .gift-line b { display: block; color: var(--cream); font-size: 16px; }
+  .gift-line span { display: block; color: #c3cac5; font-size: 14px; font-weight: 500; margin-top: 2px; }
+  .gift-line em { flex: none; font-style: normal; font-weight: 800; color: var(--mint); font-size: 15px; }
   .bar { display: flex; height: 16px; border-radius: 999px; overflow: hidden; }
   .bar i { display: block; height: 100%; }
   .c-vat { background: #6a726c; }
@@ -265,6 +269,7 @@
     .board-grid, .refer { grid-template-columns: 1fr; }
     .refer .badge { display: none; }
     .market { grid-template-columns: 1fr; gap: 12px; padding: 26px; }
+    .gift-line { flex-wrap: wrap; }
     .brand small { display: none; }
   }
   @media (max-width: 520px) {
@@ -334,6 +339,13 @@
         <p class="sub">Voici où partent les 39,99 € d'un abonnement annuel. La taxe va à l'État. Le reste des frais est regroupé sur une seule ligne.</p>
       </div>
       <div class="split reveal">
+        <div class="gift-line">
+          <div>
+            <b>Pour ton abonné</b>
+            <span>7 jours d'essai, puis 1 mois offert sur l'abonnement annuel avec ton code. Ensuite, 39,99 € par an.</span>
+          </div>
+          <em>1 mois offert</em>
+        </div>
         <div class="bar" aria-hidden="true">
           <i class="c-vat" style="width:16.68%"></i>
           <i class="c-store" style="width:24.58%"></i>
@@ -348,7 +360,7 @@
         </ul>
         <table class="decomp">
           <tr>
-            <td>L'abonné paie<small>Abonnement annuel, taxes comprises</small></td>
+            <td>L'abonné paie<small>Après l'essai et le mois offert. Taxes comprises.</small></td>
             <td>39,99 €</td>
           </tr>
           <tr class="minus">
