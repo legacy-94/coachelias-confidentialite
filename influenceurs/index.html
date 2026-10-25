@@ -261,6 +261,7 @@
   .apply-box { position: relative; overflow: hidden; background: linear-gradient(150deg, #16281f, #0e1210 60%); border: 1px solid rgba(94,212,168,.4); border-radius: 32px; padding: clamp(28px, 5vw, 60px); display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
   .apply-box::before { content: ""; position: absolute; width: 420px; height: 420px; right: -140px; top: -160px; background: radial-gradient(circle, rgba(94,212,168,.28), transparent 70%); pointer-events: none; }
   .apply-box > * { position: relative; }
+  .apply-form { display: grid; }
   form { display: grid; gap: 12px; }
   form[hidden] { display: none !important; }
   .row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
@@ -603,6 +604,7 @@
             <li>Commission de 30 % dès la première vente</li>
           </ul>
         </div>
+        <div class="apply-form">
         <form id="form" novalidate>
           <input type="text" id="name" placeholder="Ton prénom" autocomplete="given-name" required>
           <div class="row">
@@ -628,6 +630,7 @@
           <b aria-hidden="true">✓</b>
           <h3>Candidature envoyée</h3>
           <p id="formDoneText">C'est bien reçu. On te répond par e-mail avec ton lien d'inscription.</p>
+        </div>
         </div>
       </div>
     </div>
