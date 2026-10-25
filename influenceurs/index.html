@@ -186,6 +186,27 @@
   .st.wait { background: rgba(110,160,255,.14); color: #9cbcff; border: 1px solid rgba(110,160,255,.4); }
   .dash-note { margin: 18px 4px 0; color: var(--dim); font-size: 13px; text-align: center; line-height: 1.5; }
 
+  /* Décomposition */
+  .split { max-width: 720px; margin: 40px auto 0; background: var(--raised); border: 1px solid var(--line); border-radius: 24px; padding: 28px 28px 22px; }
+  .bar { display: flex; height: 16px; border-radius: 999px; overflow: hidden; }
+  .bar i { display: block; height: 100%; }
+  .c-vat { background: #6a726c; }
+  .c-store { background: var(--warn); }
+  .c-you { background: var(--mint); }
+  .c-us { background: #24302a; }
+  .legend { display: flex; flex-wrap: wrap; gap: 8px 18px; list-style: none; margin: 14px 0 8px; padding: 0; color: var(--dim); font-size: 13px; font-weight: 600; }
+  .legend li { display: flex; align-items: center; gap: 8px; }
+  .legend i { width: 10px; height: 10px; border-radius: 50%; }
+  .decomp { width: 100%; border-collapse: collapse; }
+  .decomp td { padding: 15px 0; border-top: 1px solid var(--line); vertical-align: middle; }
+  .decomp tr:first-child td { border-top: 0; }
+  .decomp td:last-child { text-align: right; font-variant-numeric: tabular-nums; font-weight: 700; white-space: nowrap; padding-left: 16px; }
+  .decomp small { display: block; color: var(--dim); font-weight: 500; font-size: 13px; margin-top: 2px; }
+  .decomp .minus td:last-child { color: var(--warn); font-weight: 600; }
+  .decomp .net td { font-weight: 700; }
+  .decomp .you td { color: var(--mint); font-weight: 800; font-size: 22px; border-top-color: rgba(94,212,168,.45); padding-top: 18px; }
+  .split-foot { margin: 16px 0 0; color: #b9c1bb; font-size: 15px; }
+
   /* Kit */
   .kit { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 44px; }
   .hooks { display: grid; gap: 12px; }
@@ -273,7 +294,7 @@
     <div class="wrap">
       <div>
         <span class="pill"><b></b>Candidatures ouvertes</span>
-        <h1>Chaque abonné que tu amènes te rapporte <em id="heroGain">8,49 €</em>.</h1>
+        <h1>Chaque abonné que tu amènes te rapporte <em id="heroGain">8,50 €</em>.</h1>
         <p class="lead">Calezio compte les calories d'un repas <strong>en une seule photo</strong>. Tu partages l'app à ton audience, tu touches <strong>30 % de chaque abonnement</strong> et tu vois chaque vente <strong>en direct</strong> sur ton tableau de bord.</p>
         <div class="cta-row">
           <a class="btn" href="#candidater">Je veux mon lien créateur →</a>
@@ -288,7 +309,7 @@
       <div class="phones" aria-hidden="true">
         <div class="phone a"><img src="img/03-plat.png" alt="" width="270" height="480"></div>
         <div class="phone b"><img src="img/00-marketing.png" alt="" width="270" height="480"></div>
-        <div class="float"><small>Nouvelle vente</small><strong>+ 8,49 €</strong></div>
+        <div class="float"><small>Nouvelle vente</small><strong>+ 8,50 €</strong></div>
       </div>
     </div>
   </div>
@@ -302,6 +323,54 @@
       <div class="stat"><b>100 %</b><span>des ventes suivies et visibles sur ton tableau de bord</span></div>
     </div>
   </div>
+
+  <!-- DÉCOMPOSITION -->
+  <section id="decomposition">
+    <div class="wrap">
+      <div class="center reveal">
+        <div class="eyebrow">La décomposition</div>
+        <h2>Ce que tu gagnes vraiment.</h2>
+        <p class="sub">Ta part sort de ce qui reste une fois la TVA reversée à l'État et la commission de Google Play prélevée. Voici un abonnement annuel.</p>
+      </div>
+      <div class="split reveal">
+        <div class="bar" aria-hidden="true">
+          <i class="c-vat" style="width:16.68%"></i>
+          <i class="c-store" style="width:12.50%"></i>
+          <i class="c-you" style="width:21.26%"></i>
+          <i class="c-us" style="width:49.56%"></i>
+        </div>
+        <ul class="legend">
+          <li><i class="c-vat"></i>TVA</li>
+          <li><i class="c-store"></i>Google Play</li>
+          <li><i class="c-you"></i>Toi, 8,50 €</li>
+          <li><i class="c-us"></i>Calezio, 19,82 €</li>
+        </ul>
+        <table class="decomp">
+          <tr>
+            <td>L'abonné paie<small>Abonnement annuel, taxes comprises</small></td>
+            <td>39,99 €</td>
+          </tr>
+          <tr class="minus">
+            <td>TVA, 20 %<small>Reversée à l'État. Cet argent n'est à personne.</small></td>
+            <td>−6,67 €</td>
+          </tr>
+          <tr class="minus">
+            <td>Commission Google Play, 15 %<small>Prélevée sur le prix hors taxe, avant toute répartition.</small></td>
+            <td>−5,00 €</td>
+          </tr>
+          <tr class="net">
+            <td>Revenu net<small>Ce qui reste à partager</small></td>
+            <td>28,32 €</td>
+          </tr>
+          <tr class="you">
+            <td>Ta part, 30 %<small>Versée au premier paiement</small></td>
+            <td>8,50 €</td>
+          </tr>
+        </table>
+        <p class="split-foot">Il reste <strong style="color:var(--cream)">19,82 €</strong> à Calezio. Cette somme paie l'analyse des photos, les serveurs, le support, et la plateforme qui te verse ta commission. Sur l'abonnement mensuel à 9,99 €, la même logique donne <strong style="color:var(--mint)">2,12 €</strong> : TVA 1,67 €, Google Play 1,25 €, revenu net 7,07 €.</p>
+      </div>
+    </div>
+  </section>
 
   <!-- MARKET -->
   <section>
@@ -449,7 +518,7 @@
         <h2>Tout est clair, avant de te lancer.</h2>
       </div>
       <div class="faq reveal">
-        <details><summary>Combien je gagne exactement ?</summary><p>Tu touches 30 % du revenu net de chaque abonnement lancé grâce à ton lien ou ton code, soit environ 8,49 € pour un abonnement annuel. Pour un abonnement mensuel, la commission est versée chaque mois, pendant 12 mois.</p></details>
+        <details><summary>Combien je gagne exactement ?</summary><p>Tu touches 30 % du revenu net du premier paiement : 8,50 € pour un abonnement annuel, 2,12 € pour un abonnement mensuel. Le revenu net, c'est le prix une fois la TVA et la commission Google Play retirées. Le détail est dans le tableau « Ce que tu gagnes vraiment ». Les renouvellements suivants ne sont pas commissionnés.</p></details>
         <details><summary>Quand suis-je payé ?</summary><p>La commission est due une fois l'abonnement réellement payé : un essai gratuit qui ne se transforme pas ne rapporte rien. Les remboursements sont déduits. Le versement se fait par virement via Stripe.</p></details>
         <details><summary>Comment sont comptées mes ventes ?</summary><p>Par ton lien unique, et par ton code créateur que ton audience peut saisir dans l'app. Les deux sont rattachés à ton compte et visibles en direct.</p></details>
         <details><summary>Je n'ai pas un gros compte, c'est pour moi ?</summary><p>Oui, candidate. On regarde la qualité de ton contenu et l'accueil de ton audience, pas seulement le nombre d'abonnés.</p></details>
@@ -509,7 +578,7 @@
 
 <script>
   // Réglages du programme : à modifier ici si les conditions changent.
-  var PROGRAM = { netPerAnnualSub: 28.3, rate: 0.30 };
+  var PROGRAM = { netPerAnnualSub: 28.32, rate: 0.30 };
   var perSub = PROGRAM.netPerAnnualSub * PROGRAM.rate;
   var eur = function (n, d) {
     return n.toLocaleString("fr-FR", { minimumFractionDigits: d || 0, maximumFractionDigits: d || 0 }) + " €";
