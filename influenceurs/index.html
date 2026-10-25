@@ -172,7 +172,7 @@
   .board-wrap { margin-top: 38px; position: relative; }
   .demo-tag { display: block; width: fit-content; max-width: 100%; margin: 0 auto 12px; background: #2a2418; color: #e6c27a; border: 1px solid #5a4a22; font-size: 11px; font-weight: 700; letter-spacing: .04em; padding: 8px 12px; border-radius: 999px; text-align: center; }
   .board { background: #0e1210; border: 1px solid var(--line); border-radius: 28px; padding: 22px; box-shadow: 0 50px 100px -30px rgba(0,0,0,.8), 0 0 90px -30px rgba(94,212,168,.4); }
-  .refer { position: relative; overflow: hidden; border: 1px solid var(--line); border-radius: 20px; padding: 26px 28px; background: linear-gradient(120deg, #112019, #0d110f 70%); display: grid; grid-template-columns: 1fr auto; gap: 20px; align-items: center; }
+  .refer { position: relative; overflow: hidden; border: 1px solid var(--line); border-radius: 20px; padding: 26px 28px; margin-top: 14px; background: linear-gradient(120deg, #112019, #0d110f 70%); display: grid; grid-template-columns: 1fr auto; gap: 20px; align-items: center; }
   .refer::after { content: ""; position: absolute; right: -60px; top: -80px; width: 320px; height: 320px; background: radial-gradient(circle, rgba(94,212,168,.2), transparent 70%); pointer-events: none; }
   .refer > * { position: relative; z-index: 1; }
   .refer small { color: var(--dim); font-size: 13px; font-weight: 500; }
@@ -499,15 +499,6 @@
       <div class="board-wrap reveal">
         <span class="demo-tag">SIMULATION · DONNÉES DE DÉMONSTRATION</span>
         <div class="board">
-          <div class="refer">
-            <div>
-              <small>🎁 Programme créateurs</small>
-              <h3>Touche <b>40 %</b> de chaque abonnement. Tes abonnés ont <b>7 jours d'essai</b> avec ton code.</h3>
-              <div class="linkbox"><span>calezio.app/ton-code</span><em>Partager le lien</em></div>
-            </div>
-            <div class="badge" aria-hidden="true">40 %</div>
-          </div>
-
           <div class="board-grid">
             <div class="panel earn">
               <div class="earn-head">
@@ -524,6 +515,14 @@
               <div class="pay-head"><h4>Versements</h4><span>4 derniers</span></div>
               <ul class="pays" id="pays"></ul>
             </div>
+          </div>
+          <div class="refer">
+            <div>
+              <small>🎁 Programme créateurs</small>
+              <h3>Touche <b>40 %</b> de chaque abonnement. Tes abonnés ont <b>7 jours d'essai</b> avec ton code.</h3>
+              <div class="linkbox"><span>calezio.app/ton-code</span><em>Partager le lien</em></div>
+            </div>
+            <div class="badge" aria-hidden="true">40 %</div>
           </div>
         </div>
         <p class="dash-note">Simulation illustrative : elle suppose une audience qui grandit progressivement. Tes gains réels dépendent de ton audience, de ton contenu et de ta conversion. Aucun revenu n'est garanti.</p>
