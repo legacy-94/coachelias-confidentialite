@@ -4,8 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
-<title>Calezio Créateurs : gagne 50 % de commission sur chaque abonné</title>
-<meta name="description" content="Programme créateurs Calezio : un lien, 50 % de commission sur chaque abonnement, un tableau de bord en direct. Candidatures ouvertes.">
+<title>Calezio Créateurs : 30 % de commission, 12 € par abonné</title>
+<meta name="description" content="Programme créateurs Calezio : 30 % de commission, 12 € par abonnement payé, un tableau de bord en direct. Candidatures ouvertes.">
+<link rel="icon" href="favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -260,6 +262,7 @@
   .apply-box::before { content: ""; position: absolute; width: 420px; height: 420px; right: -140px; top: -160px; background: radial-gradient(circle, rgba(94,212,168,.28), transparent 70%); pointer-events: none; }
   .apply-box > * { position: relative; }
   form { display: grid; gap: 12px; }
+  form[hidden] { display: none !important; }
   .row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
   input[type=text], input[type=email], select, textarea {
     width: 100%; background: #0b0e0c; color: var(--cream); border: 1px solid var(--line); border-radius: 14px;
@@ -270,6 +273,17 @@
   select { appearance: none; background-image: linear-gradient(45deg, transparent 50%, var(--mint) 50%), linear-gradient(135deg, var(--mint) 50%, transparent 50%); background-position: calc(100% - 22px) 52%, calc(100% - 16px) 52%; background-size: 6px 6px; background-repeat: no-repeat; }
   form .btn { width: 100%; padding: 18px; font-size: 17px; }
   .form-note { color: var(--dim); font-size: 13px; text-align: center; margin: 0; }
+  .form-done {
+    display: none; min-height: 280px; place-items: center; align-content: center; text-align: center;
+    background: #0b0e0c; border: 1px solid rgba(94,212,168,.55); border-radius: 22px; padding: 36px 24px;
+  }
+  .form-done.on { display: grid; gap: 10px; }
+  .form-done b {
+    width: 72px; height: 72px; border-radius: 50%; display: grid; place-items: center;
+    background: var(--mint); color: var(--ink); font-size: 36px; line-height: 1;
+  }
+  .form-done h3 { margin: 8px 0 0; font-size: 28px; letter-spacing: -.03em; }
+  .form-done p { margin: 0; color: #d5dad6; font-size: 17px; max-width: 34ch; }
 
   footer { border-top: 1px solid var(--line); padding: 34px 0 50px; color: var(--dim); font-size: 13px; line-height: 1.6; }
   footer .wrap { display: grid; gap: 12px; }
@@ -345,8 +359,8 @@
     <div class="wrap">
       <div>
         <span class="pill"><b></b>Candidatures ouvertes</span>
-        <h1>Chaque abonné que tu amènes te rapporte <em id="heroGain">10,75 €</em>.</h1>
-        <p class="lead">Calezio compte les calories d'un repas <strong>en une seule photo</strong>. Tu partages l'app à ton audience, tu touches <strong>50 % de commission</strong> et tu vois chaque vente <strong>en direct</strong> sur ton tableau de bord.</p>
+        <h1>Chaque abonné que tu amènes te rapporte <em id="heroGain">12 €</em>.</h1>
+        <p class="lead">Calezio compte les calories d'un repas <strong>en une seule photo</strong>. Tu partages l'app à ton audience, tu touches <strong>30 % de commission</strong>, soit <strong>12 €</strong>, et tu vois chaque vente <strong>en direct</strong> sur ton tableau de bord.</p>
         <div class="cta-row">
           <a class="btn" href="#candidater">Je veux mon lien créateur →</a>
           <a class="btn ghost" href="#simulateur">Calculer mes gains</a>
@@ -360,7 +374,7 @@
       <div class="phones" aria-hidden="true">
         <div class="phone a"><img src="img/03-plat.png" alt="" width="270" height="480"></div>
         <div class="phone b"><img src="img/00-marketing.png" alt="" width="270" height="480"></div>
-        <div class="float"><small>Nouvelle vente</small><strong>+ 10,75 €</strong></div>
+        <div class="float"><small>Nouvelle vente</small><strong>+ 12 €</strong></div>
       </div>
     </div>
   </div>
@@ -368,7 +382,7 @@
   <!-- STATS -->
   <div class="stats">
     <div class="wrap grid reveal">
-      <div class="stat"><b data-count="50" data-suffix=" %">50 %</b><span>de commission, au premier paiement</span></div>
+      <div class="stat"><b data-count="30" data-suffix=" %">30 %</b><span>de commission, au premier paiement</span></div>
       <div class="stat"><b data-count="7" data-suffix=" jours">7 jours</b><span>d'essai avec ton code</span></div>
       <div class="stat"><b>39,99 €</b><span>par an. Un prix qui se décide en quelques secondes</span></div>
       <div class="stat"><b>100 %</b><span>des ventes suivies et visibles sur ton tableau de bord</span></div>
@@ -394,16 +408,16 @@
         <div class="bar" aria-hidden="true">
           <i class="c-vat" style="width:16.68%"></i>
           <i class="c-store" style="width:12.50%"></i>
-          <i class="c-fee" style="width:17.05%"></i>
-          <i class="c-you" style="width:26.88%"></i>
-          <i class="c-us" style="width:26.89%"></i>
+          <i class="c-fee" style="width:10%"></i>
+          <i class="c-you" style="width:30.01%"></i>
+          <i class="c-us" style="width:30.81%"></i>
         </div>
         <ul class="legend">
           <li><i class="c-vat"></i>TVA</li>
           <li><i class="c-store"></i>Google</li>
           <li><i class="c-fee"></i>Fonctionnement</li>
-          <li><i class="c-you"></i>Toi, 10,75 €</li>
-          <li><i class="c-us"></i>Calezio, 10,75 €</li>
+          <li><i class="c-you"></i>Toi, 12 €</li>
+          <li><i class="c-us"></i>Calezio, 12,32 €</li>
         </ul>
         <table class="decomp">
           <tr>
@@ -420,15 +434,15 @@
           </tr>
           <tr class="minus">
             <td>Frais de fonctionnement</td>
-            <td>−6,82 €</td>
+            <td>−4,00 €</td>
           </tr>
           <tr class="you">
-            <td>Ta part, 50 %<small>La moitié de ce qui reste, au premier paiement.</small></td>
-            <td>10,75 €</td>
+            <td>Ta part, 30 %<small>30 % du prix, au premier paiement.</small></td>
+            <td>12,00 €</td>
           </tr>
           <tr class="rest">
-            <td>Calezio, 50 %</td>
-            <td>10,75 €</td>
+            <td>Calezio</td>
+            <td>12,32 €</td>
           </tr>
         </table>
       </div>
@@ -489,10 +503,10 @@
           <button type="button" class="nudge" id="subUp" aria-label="Plus d'abonnés">+</button>
         </div>
         <div class="presets" id="presets">
-          <button type="button" data-v="100"><b>Je démarre</b><span>1 344 €/mois</span></button>
-          <button type="button" data-v="400" class="on"><b>Régulier</b><span>5 375 €/mois</span></button>
-          <button type="button" data-v="1000"><b>Gros créateur</b><span>13 438 €/mois</span></button>
-          <button type="button" data-v="2000"><b>Carton</b><span>26 875 €/mois</span></button>
+          <button type="button" data-v="100"><b>Je démarre</b><span>1 500 €/mois</span></button>
+          <button type="button" data-v="400" class="on"><b>Régulier</b><span>6 000 €/mois</span></button>
+          <button type="button" data-v="1000"><b>Gros créateur</b><span>15 000 €/mois</span></button>
+          <button type="button" data-v="2000"><b>Carton</b><span>30 000 €/mois</span></button>
         </div>
       </div>
 
@@ -518,10 +532,10 @@
           <div class="refer">
             <div>
               <small>🎁 Programme créateurs</small>
-              <h3>Touche <b>50 %</b> de commission. Tes abonnés ont <b>7 jours d'essai</b> avec ton code.</h3>
+              <h3>Touche <b>30 %</b> de commission. Tes abonnés ont <b>7 jours d'essai</b> avec ton code.</h3>
               <div class="linkbox"><span>calezio.app/ton-code</span><em>Partager le lien</em></div>
             </div>
-            <div class="badge" aria-hidden="true">50 %</div>
+            <div class="badge" aria-hidden="true">30 %</div>
           </div>
         </div>
       </div>
@@ -566,7 +580,7 @@
         <h2>Tout est clair, avant de te lancer.</h2>
       </div>
       <div class="faq reveal">
-        <details><summary>Combien je gagne exactement ?</summary><p>Tu touches 50 % de commission : 10,75 € pour un abonnement annuel. C'est la moitié de ce qui reste une fois la TVA, Google Play et les frais de fonctionnement retirés. Les renouvellements suivants ne sont pas commissionnés.</p></details>
+        <details><summary>Combien je gagne exactement ?</summary><p>Tu touches 30 % de commission : 12 € pour un abonnement annuel payé. C'est 30 % des 39,99 €, versés une seule fois, au premier paiement. Un essai qui n'est pas payé ne rapporte rien.</p></details>
         <details><summary>Quand suis-je payé ?</summary><p>La commission est due une fois l'abonnement réellement payé : un essai gratuit qui ne se transforme pas ne rapporte rien. Les remboursements sont déduits. Le versement se fait par virement via Stripe.</p></details>
         <details><summary>Comment sont comptées mes ventes ?</summary><p>Par ton lien unique, et par ton code créateur que ton audience peut saisir dans l'app. Les deux sont rattachés à ton compte et visibles en direct.</p></details>
         <details><summary>Je n'ai pas un gros compte, c'est pour moi ?</summary><p>Oui, candidate. On regarde la qualité de ton contenu et l'accueil de ton audience, pas seulement le nombre d'abonnés.</p></details>
@@ -586,7 +600,7 @@
           <ul class="list" style="margin-top: 26px;">
             <li>L'application gratuite pour toi</li>
             <li>Réponse rapide, aucun engagement de volume</li>
-            <li>Commission de 50 % dès la première vente</li>
+            <li>Commission de 30 % dès la première vente</li>
           </ul>
         </div>
         <form id="form" novalidate>
@@ -610,6 +624,11 @@
           <button class="btn" type="submit">Envoyer ma candidature →</button>
           <p class="form-note" id="formNote">On te répond par e-mail avec ton lien d'inscription.</p>
         </form>
+        <div class="form-done" id="formDone">
+          <b aria-hidden="true">✓</b>
+          <h3>Candidature envoyée</h3>
+          <p id="formDoneText">C'est bien reçu. On te répond par e-mail avec ton lien d'inscription.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -618,19 +637,18 @@
 <footer>
   <div class="wrap">
     <div><strong style="color:var(--cream)">Calezio</strong> est une application éditée par Nevoa · <a href="mailto:contact@nevoa.app">contact@nevoa.app</a></div>
-    <div>Les montants affichés sont basés sur un abonnement annuel à 39,99 € et sur 50 % de commission après les frais de fonctionnement. Ils ne constituent ni une promesse ni une garantie de revenus : les gains dépendent de l'audience de chaque créateur. Les conditions du programme (taux, durée, modalités de versement) sont confirmées par écrit à l'acceptation de ta candidature.</div>
+    <div>Les montants affichés sont basés sur un abonnement annuel à 39,99 € et sur 30 % de commission, soit 12 € au premier paiement. Ils ne constituent ni une promesse ni une garantie de revenus : les gains dépendent de l'audience de chaque créateur. Les conditions du programme (taux, durée, modalités de versement) sont confirmées par écrit à l'acceptation de ta candidature.</div>
     <div>Calezio estime des calories à partir de photos. L'application ne fournit pas de conseil médical.</div>
   </div>
 </footer>
 
 <script>
   // Réglages du programme : à modifier ici si les conditions changent.
-  var PROGRAM = { afterFees: 21.50, rate: 0.50 };
-  var perSub = PROGRAM.afterFees * PROGRAM.rate;
+  var perSub = 12;
   var eur = function (n, d) {
     return n.toLocaleString("fr-FR", { minimumFractionDigits: d || 0, maximumFractionDigits: d || 0 }) + " €";
   };
-  document.getElementById("heroGain").textContent = eur(perSub, 2);
+  document.getElementById("heroGain").textContent = eur(perSub);
 
   // Simulation : tableau de bord
   var RAMP = [0.45, 0.52, 0.6, 0.58, 0.7, 0.78, 0.74, 0.9, 0.96, 1.05, 1.12, 1.25];
@@ -766,6 +784,7 @@
       note.style.color = "#e4a592";
       return;
     }
+    var prenom = g("name");
     button.disabled = true;
     note.style.color = "";
     note.textContent = "Envoi en cours…";
@@ -773,7 +792,7 @@
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        name: g("name"),
+        name: prenom,
         handle: g("handle"),
         email: g("email"),
         platform: document.getElementById("platform").value,
@@ -782,14 +801,15 @@
       })
     }).then(function (res) {
       if (!res.ok) throw new Error("envoi");
-      ev.target.reset();
-      note.style.color = "";
-      note.textContent = "Candidature envoyée. On te répond par e-mail.";
+      ev.target.hidden = true;
+      var done = document.getElementById("formDone");
+      document.getElementById("formDoneText").textContent = prenom + ", c'est bien reçu. On te répond par e-mail avec ton lien d'inscription.";
+      done.classList.add("on");
+      done.scrollIntoView({ behavior: "smooth", block: "center" });
     }).catch(function () {
+      button.disabled = false;
       note.style.color = "#e4a592";
       note.textContent = "L'envoi n'a pas abouti. Réessaie dans un instant.";
-    }).finally(function () {
-      button.disabled = false;
     });
   });
 </script>
