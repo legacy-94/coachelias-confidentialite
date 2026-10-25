@@ -205,6 +205,7 @@
   .decomp .minus td:last-child { color: var(--warn); font-weight: 600; }
   .decomp .net td { font-weight: 700; }
   .decomp .you td { color: var(--mint); font-weight: 800; font-size: 22px; border-top-color: rgba(94,212,168,.45); padding-top: 18px; }
+  .decomp .rest td { color: #c3cac5; font-weight: 600; }
   .split-foot { margin: 16px 0 0; color: #b9c1bb; font-size: 15px; }
 
   /* Kit */
@@ -330,20 +331,20 @@
       <div class="center reveal">
         <div class="eyebrow">La décomposition</div>
         <h2>Ce que tu gagnes vraiment.</h2>
-        <p class="sub">Ta part sort de ce qui reste une fois la TVA reversée à l'État et la commission de Google Play prélevée. Voici un abonnement annuel.</p>
+        <p class="sub">Voici où partent les 39,99 € d'un abonnement annuel. La taxe va à l'État. Le reste des frais est regroupé sur une seule ligne.</p>
       </div>
       <div class="split reveal">
         <div class="bar" aria-hidden="true">
           <i class="c-vat" style="width:16.68%"></i>
-          <i class="c-store" style="width:12.50%"></i>
+          <i class="c-store" style="width:24.58%"></i>
           <i class="c-you" style="width:21.26%"></i>
-          <i class="c-us" style="width:49.56%"></i>
+          <i class="c-us" style="width:37.48%"></i>
         </div>
         <ul class="legend">
           <li><i class="c-vat"></i>TVA</li>
-          <li><i class="c-store"></i>Google Play</li>
+          <li><i class="c-store"></i>Frais</li>
           <li><i class="c-you"></i>Toi, 8,50 €</li>
-          <li><i class="c-us"></i>Calezio, 19,82 €</li>
+          <li><i class="c-us"></i>Calezio, 14,99 €</li>
         </ul>
         <table class="decomp">
           <tr>
@@ -351,23 +352,23 @@
             <td>39,99 €</td>
           </tr>
           <tr class="minus">
-            <td>TVA, 20 %<small>Reversée à l'État. Cet argent n'est à personne.</small></td>
+            <td>TVA, 20 %<small>Reversée à l'État.</small></td>
             <td>−6,67 €</td>
           </tr>
           <tr class="minus">
-            <td>Commission Google Play, 15 %<small>Prélevée sur le prix hors taxe, avant toute répartition.</small></td>
-            <td>−5,00 €</td>
-          </tr>
-          <tr class="net">
-            <td>Revenu net<small>Ce qui reste à partager</small></td>
-            <td>28,32 €</td>
+            <td>Frais de fonctionnement<small>Google Play, InfluTo et les frais courants.</small></td>
+            <td>−9,83 €</td>
           </tr>
           <tr class="you">
-            <td>Ta part, 30 %<small>Versée au premier paiement</small></td>
+            <td>Ta part, 30 %<small>Calculée après la taxe et la boutique. Premier paiement.</small></td>
             <td>8,50 €</td>
           </tr>
+          <tr class="rest">
+            <td>Calezio<small>L'app, les photos, le support.</small></td>
+            <td>14,99 €</td>
+          </tr>
         </table>
-        <p class="split-foot">Il reste <strong style="color:var(--cream)">19,82 €</strong> à Calezio. Cette somme paie l'analyse des photos, les serveurs, le support, et la plateforme qui te verse ta commission. Sur l'abonnement mensuel à 9,99 €, la même logique donne <strong style="color:var(--mint)">2,12 €</strong> : TVA 1,67 €, Google Play 1,25 €, revenu net 7,07 €.</p>
+        <p class="split-foot">Sur l'abonnement mensuel à 9,99 €, ta part est de <strong style="color:var(--mint)">2,12 €</strong>.</p>
       </div>
     </div>
   </section>
@@ -518,7 +519,7 @@
         <h2>Tout est clair, avant de te lancer.</h2>
       </div>
       <div class="faq reveal">
-        <details><summary>Combien je gagne exactement ?</summary><p>Tu touches 30 % du revenu net du premier paiement : 8,50 € pour un abonnement annuel, 2,12 € pour un abonnement mensuel. Le revenu net, c'est le prix une fois la TVA et la commission Google Play retirées. Le détail est dans le tableau « Ce que tu gagnes vraiment ». Les renouvellements suivants ne sont pas commissionnés.</p></details>
+        <details><summary>Combien je gagne exactement ?</summary><p>Tu touches 30 % du revenu net du premier paiement : 8,50 € pour un abonnement annuel, 2,12 € pour un abonnement mensuel. Ce revenu net, c'est le prix une fois la TVA et Google Play retirés. InfluTo et les frais courants sont à notre charge, ils sont regroupés dans le tableau « Ce que tu gagnes vraiment ». Les renouvellements suivants ne sont pas commissionnés.</p></details>
         <details><summary>Quand suis-je payé ?</summary><p>La commission est due une fois l'abonnement réellement payé : un essai gratuit qui ne se transforme pas ne rapporte rien. Les remboursements sont déduits. Le versement se fait par virement via Stripe.</p></details>
         <details><summary>Comment sont comptées mes ventes ?</summary><p>Par ton lien unique, et par ton code créateur que ton audience peut saisir dans l'app. Les deux sont rattachés à ton compte et visibles en direct.</p></details>
         <details><summary>Je n'ai pas un gros compte, c'est pour moi ?</summary><p>Oui, candidate. On regarde la qualité de ton contenu et l'accueil de ton audience, pas seulement le nombre d'abonnés.</p></details>
