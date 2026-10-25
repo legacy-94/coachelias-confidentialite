@@ -608,7 +608,7 @@
           </div>
           <textarea id="msg" rows="3" placeholder="Un mot sur ton contenu (facultatif)"></textarea>
           <button class="btn" type="submit">Envoyer ma candidature →</button>
-          <p class="form-note" id="formNote">Ta candidature part par e-mail. On te répond avec ton lien d'inscription.</p>
+          <p class="form-note" id="formNote">On te répond par e-mail avec ton lien d'inscription.</p>
         </form>
       </div>
     </div>
@@ -755,27 +755,42 @@
   }, { threshold: 0.12 }) : null;
   document.querySelectorAll(".reveal").forEach(function (el) { io ? io.observe(el) : el.classList.add("in"); });
 
-  // Candidature par e-mail
+  // Candidature envoyée directement
   document.getElementById("form").addEventListener("submit", function (ev) {
     ev.preventDefault();
     var g = function (id) { return document.getElementById(id).value.trim(); };
     var note = document.getElementById("formNote");
+    var button = ev.target.querySelector("button");
     if (!g("name") || !g("handle") || !/^\S+@\S+\.\S+$/.test(g("email"))) {
       note.textContent = "Il manque ton prénom, ton compte ou un e-mail valide.";
       note.style.color = "#e4a592";
       return;
     }
-    var body = [
-      "Prénom : " + g("name"),
-      "Compte : " + g("handle") + " (" + document.getElementById("platform").value + ")",
-      "Audience : " + document.getElementById("size").value,
-      "E-mail : " + g("email"),
-      "",
-      g("msg")
-    ].join("\n");
-    window.location.href = "mailto:contact@nevoa.app?subject=" + encodeURIComponent("Candidature créateur Calezio") + "&body=" + encodeURIComponent(body);
+    button.disabled = true;
     note.style.color = "";
-    note.textContent = "Ton e-mail s'ouvre. Il te reste à l'envoyer.";
+    note.textContent = "Envoi en cours…";
+    fetch("https://www.lyzerio.com/api/calezio-candidature", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        name: g("name"),
+        handle: g("handle"),
+        email: g("email"),
+        platform: document.getElementById("platform").value,
+        size: document.getElementById("size").value,
+        message: g("msg")
+      })
+    }).then(function (res) {
+      if (!res.ok) throw new Error("envoi");
+      ev.target.reset();
+      note.style.color = "";
+      note.textContent = "Candidature envoyée. On te répond par e-mail.";
+    }).catch(function () {
+      note.style.color = "#e4a592";
+      note.textContent = "L'envoi n'a pas abouti. Réessaie dans un instant.";
+    }).finally(function () {
+      button.disabled = false;
+    });
   });
 </script>
 </body>
