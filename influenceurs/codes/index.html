@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Codes d'accès Calezio</title>
+<link rel="icon" href="../favicon.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #080a09; --raised: #141816; --line: #2a312c; --cream: #f3f5f2;
+    --dim: #8c948e; --mint: #5ed4a8; --ink: #06110c; --warn: #e4a592;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; min-height: 100vh; background: var(--bg); color: var(--cream); font-family: "Plus Jakarta Sans", sans-serif; }
+  main { width: min(560px, calc(100% - 32px)); margin: 0 auto; padding: 48px 0 80px; }
+  h1 { font-size: 32px; line-height: 1.1; margin: 0 0 12px; letter-spacing: -0.04em; }
+  p { color: var(--dim); line-height: 1.5; margin: 0 0 22px; }
+  form, .panel { display: grid; gap: 12px; }
+  input {
+    width: 100%; border: 1px solid var(--line); background: var(--raised); color: var(--cream);
+    border-radius: 14px; padding: 14px 16px; font: inherit; font-size: 16px;
+  }
+  button, .ghost {
+    border: 0; border-radius: 14px; padding: 14px 16px; font: inherit; font-weight: 700; cursor: pointer;
+  }
+  button.primary { background: var(--mint); color: var(--ink); }
+  button.ghost, .ghost { background: transparent; color: var(--cream); border: 1px solid var(--line); }
+  button:disabled { opacity: 0.5; cursor: default; }
+  .row { display: flex; gap: 8px; }
+  .row input { flex: 1; }
+  .code {
+    display: flex; align-items: center; justify-content: space-between; gap: 12px;
+    background: var(--raised); border: 1px solid var(--line); border-radius: 14px; padding: 12px 14px;
+  }
+  .code b { letter-spacing: 0.04em; }
+  .code button { padding: 8px 12px; }
+  .error { color: var(--warn); min-height: 1.2em; }
+  .empty { color: var(--dim); }
+  [hidden] { display: none !important; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Codes d'accès</h1>
+  <p>Un code ouvre toute l'application pour un influenceur. Tu le supprimes ici, et l'accès se ferme à sa prochaine ouverture. Choisis un code différent de son code public InfluTo.</p>
+  <form id="login">
+    <input id="password" type="password" autocomplete="current-password" placeholder="Mot de passe" required>
+    <button class="primary" type="submit">Entrer</button>
+    <div class="error" id="loginError"></div>
+  </form>
+  <section class="panel" id="desk" hidden>
+    <div class="row">
+      <input id="code" placeholder="Ex. MARIE-K7M4" autocapitalize="characters" autocomplete="off">
+      <button class="ghost" id="generate" type="button">Générer</button>
+      <button class="primary" id="add" type="button">Créer</button>
+    </div>
+    <div class="error" id="deskError"></div>
+    <div id="list"></div>
+  </section>
+</main>
+<script>
+const API = "https://www.lyzerio.com/api/calezio-acces";
+const login = document.querySelector("#login");
+const desk = document.querySelector("#desk");
+const loginError = document.querySelector("#loginError");
+const deskError = document.querySelector("#deskError");
+const list = document.querySelector("#list");
+let secret = sessionStorage.getItem("calezio.codes") || "";
+
+function clean(value) {
+  return value.trim().toUpperCase().replace(/\s+/g, "");
+}
+
+async function call(action, code) {
+  const response = await fetch(API, {
+    method: "POST",
+    headers: { "content-type": "application/json", authorization: "Bearer " + secret },
+    body: JSON.stringify(code ? { action, code } : { action }),
+  });
+  const body = await response.json().catch(() => ({ ok: false }));
+  if (response.status === 401) throw new Error("Mot de passe incorrect.");
+  if (!response.ok || !body.ok) throw new Error("L'enregistrement n'a pas abouti. Réessaie.");
+  return body.codes || [];
+}
+
+function render(codes) {
+  list.replaceChildren();
+  if (!codes.length) {
+    const empty = document.createElement("p");
+    empty.className = "empty";
+    empty.textContent = "Aucun code. Sans code, l'influenceur n'a pas accès.";
+    list.append(empty);
+    return;
+  }
+  for (const code of codes) {
+    const row = document.createElement("div");
+    row.className = "code";
+    const name = document.createElement("b");
+    name.textContent = code;
+    const actions = document.createElement("div");
+    actions.className = "row";
+    const copy = document.createElement("button");
+    copy.className = "ghost";
+    copy.type = "button";
+    copy.textContent = "Copier";
+    copy.addEventListener("click", () => navigator.clipboard.writeText(code));
+    const remove = document.createElement("button");
+    remove.className = "ghost";
+    remove.type = "button";
+    remove.textContent = "Supprimer";
+    remove.addEventListener("click", async () => {
+      if (!confirm("Supprimer " + code + " ? L'accès se ferme à la prochaine ouverture.")) return;
+      deskError.textContent = "";
+      try { render(await call("remove", code)); }
+      catch (error) { deskError.textContent = error.message; }
+    });
+    actions.append(copy, remove);
+    row.append(name, actions);
+    list.append(row);
+  }
+}
+
+async function openDesk() {
+  loginError.textContent = "";
+  const codes = await call("list");
+  sessionStorage.setItem("calezio.codes", secret);
+  login.hidden = true;
+  desk.hidden = false;
+  render(codes);
+}
+
+login.addEventListener("submit", async (event) => {
+  event.preventDefault();
+  secret = document.querySelector("#password").value;
+  try { await openDesk(); }
+  catch (error) { loginError.textContent = error.message; }
+});
+
+document.querySelector("#generate").addEventListener("click", () => {
+  const alphabet = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+  let code = "";
+  const bytes = crypto.getRandomValues(new Uint8Array(8));
+  for (const byte of bytes) code += alphabet[byte % alphabet.length];
+  document.querySelector("#code").value = code;
+});
+
+document.querySelector("#add").addEventListener("click", async () => {
+  deskError.textContent = "";
+  const code = clean(document.querySelector("#code").value);
+  if (!/^[A-Z0-9_-]{8,24}$/.test(code)) {
+    deskError.textContent = "8 à 24 lettres ou chiffres, sans espace.";
+    return;
+  }
+  try {
+    render(await call("add", code));
+    document.querySelector("#code").value = "";
+  } catch (error) {
+    deskError.textContent = error.message;
+  }
+});
+
+if (secret) openDesk().catch(() => { secret = ""; sessionStorage.removeItem("calezio.codes"); });
+</script>
+</body>
+</html>
