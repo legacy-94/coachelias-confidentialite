@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
-<title>Calezio Créateurs : jusqu'à 30 % de commission, 12 € par abonné</title>
-<meta name="description" content="Programme créateurs Calezio : jusqu'à 30 % de commission selon tes ventes, 12 € par abonnement au palier le plus haut. Candidatures ouvertes.">
+<title>Calezio Créateurs : 30 % de commission, 12 € par abonné</title>
+<meta name="description" content="Programme créateurs Calezio : 30 % de commission, 12 € par abonnement payé, un tableau de bord en direct. Candidatures ouvertes.">
 <link rel="icon" href="favicon.png" type="image/png">
 <link rel="apple-touch-icon" href="favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -170,17 +170,6 @@
   .presets button span { font-size: 13px; font-weight: 600; color: var(--dim); white-space: nowrap; }
   .presets button:hover, .presets button.on { border-color: var(--mint); color: var(--mint); background: var(--tint); }
   .presets button.on span, .presets button:hover span { color: var(--mint); }
-  .rate-line { margin: 12px 0 0; color: var(--cream); font-size: 14px; font-weight: 600; }
-  .rate-line b { color: var(--mint); }
-  .tiers { display: grid; grid-template-columns: 1fr; gap: 8px; margin-top: 14px; }
-  .tiers button {
-    text-align: left; background: #101412; color: var(--cream); border: 1px solid var(--line);
-    border-radius: 16px; padding: 12px 14px; font: inherit; cursor: pointer;
-  }
-  .tiers button b { display: block; font-size: 18px; letter-spacing: -.02em; }
-  .tiers button span { display: block; margin-top: 2px; color: var(--dim); font-size: 13px; font-weight: 600; }
-  .tiers button.on { border-color: var(--mint); background: var(--tint); }
-  .tiers button.on b, .tiers button.on span { color: var(--mint); }
 
   .board-wrap { margin-top: 38px; position: relative; }
   .demo-tag { display: block; width: fit-content; max-width: 100%; margin: 0 auto 12px; background: #2a2418; color: #e6c27a; border: 1px solid #5a4a22; font-size: 11px; font-weight: 700; letter-spacing: .04em; padding: 8px 12px; border-radius: 999px; text-align: center; }
@@ -315,7 +304,6 @@
     .rhythm label { flex-direction: row; justify-content: space-between; align-items: center; margin-bottom: 8px; font-size: 16px; }
     .rhythm label output { font-size: 42px; }
     .presets { grid-template-columns: repeat(4, 1fr); }
-    .tiers { grid-template-columns: repeat(3, 1fr); }
     .demo-tag { position: absolute; top: -14px; right: 24px; margin: 0; z-index: 2; }
     h1 { margin: 22px 0 20px; }
   }
@@ -372,8 +360,8 @@
     <div class="wrap">
       <div>
         <span class="pill"><b></b>Candidatures ouvertes</span>
-        <h1>Chaque abonné que tu amènes te rapporte <em id="heroGain">jusqu'à 12 €</em>.</h1>
-        <p class="lead">Calezio compte les calories d'un repas <strong>en une seule photo</strong>. Tu partages l'app à ton audience, tu touches <strong>jusqu'à 30 % de commission</strong>, soit <strong>12 €</strong> quand tes ventes montent, et tu vois chaque vente <strong>en direct</strong> sur ton tableau de bord.</p>
+        <h1>Chaque abonné que tu amènes te rapporte <em id="heroGain">12 €</em>.</h1>
+        <p class="lead">Calezio compte les calories d'un repas <strong>en une seule photo</strong>. Tu partages l'app à ton audience, tu touches <strong>30 % de commission</strong>, soit <strong>12 €</strong>, et tu vois chaque vente <strong>en direct</strong> sur ton tableau de bord.</p>
         <div class="cta-row">
           <a class="btn" href="#candidater">Je veux mon lien créateur →</a>
           <a class="btn ghost" href="#simulateur">Calculer mes gains</a>
@@ -395,7 +383,7 @@
   <!-- STATS -->
   <div class="stats">
     <div class="wrap grid reveal">
-      <div class="stat"><b>jusqu'à 30 %</b><span>de commission, selon tes ventes</span></div>
+      <div class="stat"><b data-count="30" data-suffix=" %">30 %</b><span>de commission, au premier paiement</span></div>
       <div class="stat"><b data-count="7" data-suffix=" jours">7 jours</b><span>d'essai avec ton code</span></div>
       <div class="stat"><b>39,99 €</b><span>par an. Un prix qui se décide en quelques secondes</span></div>
       <div class="stat"><b>100 %</b><span>des ventes suivies et visibles sur ton tableau de bord</span></div>
@@ -450,7 +438,7 @@
             <td>−4,00 €</td>
           </tr>
           <tr class="you">
-            <td>Ta part, jusqu'à 30 %<small>Selon le nombre de ventes, au premier paiement.</small></td>
+            <td>Ta part, 30 %<small>30 % du prix, au premier paiement.</small></td>
             <td>12,00 €</td>
           </tr>
           <tr class="rest">
@@ -509,23 +497,17 @@
       </div>
 
       <div class="rhythm reveal">
-        <label for="subs">Abonnés annuels amenés par mois <output id="subsOut">100</output></label>
-        <p class="rate-line" id="rateLine">25 % · 10 € par vente</p>
+        <label for="subs">Abonnés annuels amenés par mois <output id="subsOut">300</output></label>
         <div class="slider-row">
           <button type="button" class="nudge" id="subDown" aria-label="Moins d'abonnés">−</button>
-          <input type="range" id="subs" min="50" max="400" step="50" value="100" style="--p:14.3%">
+          <input type="range" id="subs" min="50" max="1500" step="50" value="300" style="--p:17.2%">
           <button type="button" class="nudge" id="subUp" aria-label="Plus d'abonnés">+</button>
         </div>
         <div class="presets" id="presets">
-          <button type="button" data-v="50"><b>Je démarre</b><span>500 €/mois</span></button>
-          <button type="button" data-v="100" class="on"><b>Régulier</b><span>1 250 €/mois</span></button>
-          <button type="button" data-v="200"><b>Gros créateur</b><span>3 000 €/mois</span></button>
-          <button type="button" data-v="400"><b>Carton</b><span>6 000 €/mois</span></button>
-        </div>
-        <div class="tiers" id="tiers">
-          <button type="button" data-v="50"><b>20 %</b><span>8 € · moins de 100 ventes</span></button>
-          <button type="button" data-v="100" class="on"><b>25 %</b><span>10 € · de 100 à 199 ventes</span></button>
-          <button type="button" data-v="200"><b>30 %</b><span>12 € · 200 ventes et plus</span></button>
+          <button type="button" data-v="50"><b>Je démarre</b><span>750 €/mois</span></button>
+          <button type="button" data-v="300" class="on"><b>Régulier</b><span>4 500 €/mois</span></button>
+          <button type="button" data-v="800"><b>Gros créateur</b><span>12 000 €/mois</span></button>
+          <button type="button" data-v="1500"><b>Carton</b><span>22 500 €/mois</span></button>
         </div>
       </div>
 
@@ -551,7 +533,7 @@
           <div class="refer">
             <div>
               <small>🎁 Programme créateurs</small>
-              <h3>Touche <b>jusqu'à 30 %</b> de commission, selon tes ventes. Tes abonnés ont <b>7 jours d'essai</b> avec ton code.</h3>
+              <h3>Touche <b>30 %</b> de commission. Tes abonnés ont <b>7 jours d'essai</b> avec ton code.</h3>
               <div class="linkbox"><span>calezio.app/ton-code</span><em>Partager le lien</em></div>
             </div>
             <div class="badge" aria-hidden="true">30 %</div>
@@ -599,7 +581,7 @@
         <h2>Tout est clair, avant de te lancer.</h2>
       </div>
       <div class="faq reveal">
-        <details><summary>Combien je gagne exactement ?</summary><p>La commission dépend du nombre d'abonnements payés dans le mois, et elle est versée une seule fois, au premier paiement. Moins de 100 ventes : 20 %, soit 8 €. De 100 à 199 ventes : 25 %, soit 10 €. 200 ventes et plus : 30 %, soit 12 €. Un essai qui n'est pas payé ne rapporte rien.</p></details>
+        <details><summary>Combien je gagne exactement ?</summary><p>Tu touches 30 % de commission : 12 € pour un abonnement annuel payé. C'est 30 % des 39,99 €, versés une seule fois, au premier paiement. Un essai qui n'est pas payé ne rapporte rien.</p></details>
         <details><summary>Quand suis-je payé ?</summary><p>La commission est due une fois l'abonnement réellement payé : un essai gratuit qui ne se transforme pas ne rapporte rien. Les remboursements sont déduits. Le versement se fait par virement via Stripe.</p></details>
         <details><summary>Comment sont comptées mes ventes ?</summary><p>Par ton lien unique, et par ton code créateur que ton audience peut saisir dans l'app. Les deux sont rattachés à ton compte et visibles en direct.</p></details>
         <details><summary>Je n'ai pas un gros compte, c'est pour moi ?</summary><p>Oui, candidate. On regarde la qualité de ton contenu et l'accueil de ton audience, pas seulement le nombre d'abonnés.</p></details>
@@ -619,7 +601,7 @@
           <ul class="list" style="margin-top: 26px;">
             <li>L'application gratuite pour toi</li>
             <li>Réponse rapide, aucun engagement de volume</li>
-            <li>Jusqu'à 30 % de commission, selon tes ventes</li>
+            <li>Commission de 30 % dès la première vente</li>
           </ul>
         </div>
         <div class="apply-form">
@@ -658,27 +640,18 @@
 <footer>
   <div class="wrap">
     <div><strong style="color:var(--cream)">Calezio</strong> est une application éditée par Nevoa · <a href="mailto:contact@nevoa.app">contact@nevoa.app</a></div>
-    <div>Les montants affichés sont basés sur un abonnement annuel à 39,99 €. La commission va de 20 % (8 €) à 30 % (12 €) selon le nombre de ventes du mois, au premier paiement seulement. Ils ne constituent ni une promesse ni une garantie de revenus : les gains dépendent de l'audience de chaque créateur. Les conditions du programme (taux, durée, modalités de versement) sont confirmées par écrit à l'acceptation de ta candidature.</div>
+    <div>Les montants affichés sont basés sur un abonnement annuel à 39,99 € et sur 30 % de commission, soit 12 € au premier paiement. Ils ne constituent ni une promesse ni une garantie de revenus : les gains dépendent de l'audience de chaque créateur. Les conditions du programme (taux, durée, modalités de versement) sont confirmées par écrit à l'acceptation de ta candidature.</div>
     <div>Calezio estime des calories à partir de photos. L'application ne fournit pas de conseil médical.</div>
   </div>
 </footer>
 
 <script>
   // Réglages du programme : à modifier ici si les conditions changent.
-  function share(n) {
-    if (n >= 200) return 12;
-    if (n >= 100) return 10;
-    return 8;
-  }
-  function rateLabel(n) {
-    if (n >= 200) return "30 % · 12 € par vente";
-    if (n >= 100) return "25 % · 10 € par vente";
-    return "20 % · 8 € par vente";
-  }
+  var perSub = 12;
   var eur = function (n, d) {
     return n.toLocaleString("fr-FR", { minimumFractionDigits: d || 0, maximumFractionDigits: d || 0 }) + " €";
   };
-  document.getElementById("heroGain").textContent = "jusqu'à 12 €";
+  document.getElementById("heroGain").textContent = eur(perSub);
 
   // Simulation : tableau de bord
   var RAMP = [0.45, 0.52, 0.6, 0.58, 0.7, 0.78, 0.74, 0.9, 0.96, 1.05, 1.12, 1.25];
@@ -686,7 +659,6 @@
   var range = document.getElementById("subs");
   var subsOut = document.getElementById("subsOut");
   var presets = document.querySelectorAll("#presets button");
-  var tiers = document.querySelectorAll("#tiers button");
   var chart = document.getElementById("chart");
   var now = new Date();
   var monthDate = function (k) { return new Date(now.getFullYear(), now.getMonth() - (11 - k), 1); };
@@ -759,13 +731,10 @@
     subsOut.textContent = v;
     range.style.setProperty("--p", ((v - range.min) / (range.max - range.min)) * 100 + "%");
     presets.forEach(function (b) { b.classList.toggle("on", Number(b.dataset.v) === v); });
-    tiers.forEach(function (b) { b.classList.toggle("on", share(v) === share(Number(b.dataset.v))); });
-    document.getElementById("rateLine").textContent = rateLabel(v);
 
-    var euro = share(v);
     series = RAMP.map(function (m, k) {
       var n = Math.max(1, Math.round(v * m));
-      return { n: n, eur: v * m * euro, date: monthDate(k) };
+      return { n: n, eur: n * perSub, date: monthDate(k) };
     });
     var total = series.reduce(function (a, s) { return a + s.eur; }, 0);
     var subsTotal = series.reduce(function (a, s) { return a + s.n; }, 0);
@@ -791,7 +760,6 @@
   }
   range.addEventListener("input", render);
   presets.forEach(function (b) { b.addEventListener("click", function () { range.value = b.dataset.v; render(); }); });
-  tiers.forEach(function (b) { b.addEventListener("click", function () { range.value = b.dataset.v; render(); }); });
   function nudge(dir) {
     var step = Number(range.step) || 50;
     var next = Number(range.value) + dir * step;
