@@ -497,17 +497,17 @@
       </div>
 
       <div class="rhythm reveal">
-        <label for="subs">Abonnés annuels amenés par mois <output id="subsOut">300</output></label>
+        <label for="subs">Abonnés annuels amenés par mois <output id="subsOut">180</output></label>
         <div class="slider-row">
           <button type="button" class="nudge" id="subDown" aria-label="Moins d'abonnés">−</button>
-          <input type="range" id="subs" min="50" max="1500" step="50" value="300" style="--p:17.2%">
+          <input type="range" id="subs" min="30" max="900" step="30" value="180" style="--p:17.2%">
           <button type="button" class="nudge" id="subUp" aria-label="Plus d'abonnés">+</button>
         </div>
         <div class="presets" id="presets">
-          <button type="button" data-v="50"><b>Je démarre</b><span>750 €/mois</span></button>
-          <button type="button" data-v="300" class="on"><b>Régulier</b><span>4 500 €/mois</span></button>
-          <button type="button" data-v="800"><b>Gros créateur</b><span>12 000 €/mois</span></button>
-          <button type="button" data-v="1500"><b>Carton</b><span>22 500 €/mois</span></button>
+          <button type="button" data-v="30"><b>Je démarre</b><span>450 €/mois</span></button>
+          <button type="button" data-v="180" class="on"><b>Régulier</b><span>2 700 €/mois</span></button>
+          <button type="button" data-v="480"><b>Gros créateur</b><span>7 200 €/mois</span></button>
+          <button type="button" data-v="900"><b>Carton</b><span>13 500 €/mois</span></button>
         </div>
       </div>
 
@@ -622,6 +622,7 @@
             </select>
             <input type="email" id="email" placeholder="Ton e-mail" autocomplete="email" required>
           </div>
+          <input type="tel" id="phone" placeholder="Ton numéro (facultatif)" autocomplete="tel" inputmode="tel">
           <textarea id="msg" rows="3" placeholder="Un mot sur ton contenu (facultatif)"></textarea>
           <button class="btn" type="submit">Envoyer ma candidature →</button>
           <p class="form-note" id="formNote">On te répond par e-mail avec ton lien d'inscription.</p>
@@ -734,7 +735,7 @@
 
     series = RAMP.map(function (m, k) {
       var n = Math.max(1, Math.round(v * m));
-      return { n: n, eur: n * perSub, date: monthDate(k) };
+      return { n: n, eur: v * m * perSub, date: monthDate(k) };
     });
     var total = series.reduce(function (a, s) { return a + s.eur; }, 0);
     var subsTotal = series.reduce(function (a, s) { return a + s.n; }, 0);
@@ -782,8 +783,14 @@
     var g = function (id) { return document.getElementById(id).value.trim(); };
     var note = document.getElementById("formNote");
     var button = ev.target.querySelector("button");
+    var phone = g("phone");
     if (!g("name") || !g("handle") || !/^\S+@\S+\.\S+$/.test(g("email"))) {
       note.textContent = "Il manque ton prénom, ton compte ou un e-mail valide.";
+      note.style.color = "#e4a592";
+      return;
+    }
+    if (phone && phone.replace(/\D/g, "").length < 8) {
+      note.textContent = "Ce numéro n'a pas l'air complet. Tu peux aussi le laisser vide.";
       note.style.color = "#e4a592";
       return;
     }
@@ -798,6 +805,7 @@
         name: prenom,
         handle: g("handle"),
         email: g("email"),
+        phone: phone,
         platform: document.getElementById("platform").value,
         size: document.getElementById("size").value,
         message: g("msg")
