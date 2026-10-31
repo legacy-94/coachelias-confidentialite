@@ -258,7 +258,7 @@
 
   /* Apply */
   .apply { padding-bottom: 100px; }
-  .apply-box { position: relative; overflow: hidden; background: linear-gradient(150deg, #16281f, #0e1210 60%); border: 1px solid rgba(94,212,168,.4); border-radius: 32px; padding: clamp(28px, 5vw, 60px); display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+  .apply-box { position: relative; overflow: hidden; overflow: clip; background: linear-gradient(150deg, #16281f, #0e1210 60%); border: 1px solid rgba(94,212,168,.4); border-radius: 32px; padding: clamp(28px, 5vw, 60px); display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
   .apply-box::before { content: ""; position: absolute; width: 420px; height: 420px; right: -140px; top: -160px; background: radial-gradient(circle, rgba(94,212,168,.28), transparent 70%); pointer-events: none; }
   .apply-box > * { position: relative; }
   .apply-form { display: grid; }
